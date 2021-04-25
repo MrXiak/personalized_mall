@@ -1,0 +1,278 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#main-lunbo {
+    margin: 0 auto;
+    width: 1090px;
+    height: auto;
+    margin-left:320px;
+}
+
+#main-introduction {
+    width: 1300px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.introduction {
+    width: auto;
+    height: 150px;
+    float: left;
+    margin-left: 32px;
+    margin-top: 50px;
+}
+
+.introduction-left {
+    width: 100px;
+    float: left;
+    margin-top: 35px;
+    margin-left: 20px;
+}
+
+.introduction-right {
+    width: 150px;
+    height: 200px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.word1 {
+    color: white;
+    text-align: left;
+}
+
+.word2 {
+    margin-top: 5px;
+    color: white;
+    text-align: left;
+}
+
+#introduction1 {
+    background-color: #CCCCCC;
+}
+
+#introduction2 {
+    background-color: #ADD3B8;
+}
+
+#introduction3 {
+    background-color: #ffcc33;
+}
+
+#introduction4 {
+    background-color: #97D8F8;
+}
+
+.word3 {
+    padding-top: 50px;
+    color: white;
+}
+
+.word4 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/*售卖专区从此开始*/
+#Selling_zone {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 100px;
+    /*border: 1px solid black;*/
+}
+
+#sell_left {
+    background-image: url("../images/sell_pic.jpg");
+    background-repeat: no-repeat;
+    height: 578px;
+    width: 220px;
+    margin: 0 auto;
+    text-align: center;
+    float: left;
+}
+
+/*租赁专区从此开始*/
+#Lease_zone {
+    width: 1200px;
+    height: 700px;
+    margin: 0 auto;
+    /*border: 1px solid black;*/
+}
+
+#Lease_left {
+    background-image: url("../images/lease_pic1.jpg");
+    background-repeat: no-repeat;
+    height: 578px;
+    width: 220px;
+    margin: 0 auto;
+    text-align: center;
+    float: left;
+}
+
+#Lease_content {
+    width: 750px;
+    height: 578px;
+    float: left;
+}
+
+#Lease_right {
+    height: 578px;
+    width: 220px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px gainsboro solid;
+    float: left;
+}
+
+#Lease_right_1 {
+    height: 78px;
+    width: auto;
+    text-align: center;
+    /*border: 1px solid black;*/
+    padding-top: 50px;
+
+}
+
+#Lease_right_2 {
+    background-image: url("../images/lease_pic2.png");
+    background-repeat: no-repeat;
+    height: 500px;
+    margin-left: 15px;
+    width: 240px;
+    margin-top: -25px;
+}
+
+.Lease_right_2_0 {
+    text-align: center;
+    font-size: 14px;
+}
+
+#Lease_right_2_1 {
+    padding-top: 30px;
+    margin-left: -50px;
+}
+
+#Lease_right_2_2 {
+    padding-top: 100px;
+}
+
+#Lease_right_2_3 {
+    padding-top: 90px;
+}
+
+#Lease_right_2_4 {
+    padding-top: 95px;
+}
+
+/*售卖内容*/
+#sell_content {
+    margin: 0 auto;
+    /*border: 1px solid black;*/
+    width: 100%;
+    height: 580px;
+}
+
+.sellcontent {
+    width: 210px;
+    height: 160px;
+    border: 1px solid black;
+    float: left;
+    margin-left: 32px;
+    margin-top: 25px;
+}
+
+.good_img {
+    margin: 0 auto;
+    height: 120px;
+    width: 210px;
+    /*border: 1px solid black;*/
+    text-align: center;
+}
+
+.good_name {
+    margin: 0 auto;
+    height: 20px;
+    width: 210px;
+    /*border: 1px solid black;*/
+    text-align: center;
+    font-size: 15px;
+    padding-top: 5px;
+}
+
+.good_price {
+    margin: 0 auto;
+    height: 20px;
+    width: 210px;
+    /*border: 1px solid black;*/
+    text-align: center;
+    color: red;
+    font-size: 12px;
+}
+
+.Lease_content_part {
+    margin: 0 auto;
+    height: 160px;
+    width: 300px;
+    float: left;
+    border: 1px solid black;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.kind {
+    font-size: 30px;
+    font-family: 幼圆;
+    color: gray;
+    width: 80px;
+    height: 160px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 160px;
+    margin-left: 30px;
+}
+
+.kind_img {
+    width: 190px;
+    height: 160px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 160px;
+}
+
+/*    推荐专区*/
+#recommend_zone {
+    width: 1200px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    /*border: 1px solid black;*/
+
+}
+
+.recommendcontent {
+    margin: 0 auto;
+    height: 160px;
+    width: 200px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    border: 1px solid black;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/layuiadmin/layui/css/layui.css}">
+    <script th:src="@{/layer/layer.js}"></script>
+    <style type="text/css">
+        #container {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /*#top {*/
+        /*    height: 70px;*/
+        /*    width: 500px;*/
+
+        /*}*/
+
+        #middle {
+            width: 100%;
+            height: 800px;
+            cursor: default;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            display: block;
+            outline: none;
+            margin: 0 auto;
+            background-size: cover;
+            background-image: url("../images/bg1.jpg");
+            opacity: .9;
+        }
+
+        #login_body {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: rgba(238, 238, 238, 0.7);
+            margin-top: 150px;
+        }
+
+        #main_body {
+            margin: 0 auto;
+            padding-top: 60px;
+        }
+
+        #main {
+            margin: auto;
+
+        }
+
+        .layui-btn-danger {
+            width: 300px;
+        }
+
+        a {
+            color: red;
+        }
+
+        #login_word {
+            margin-left: 0;
+            margin-bottom: 30px;
+            width: 270px;
+            text-align: center;
+        }
+
+        .layui-input {
+            width: 200px;
+        }
+
+        #forget {
+            float: right;
+            color: red;
+            font-size: 2px;
+            width: 150px;
+        }
+
+        .layui-form-label {
+            margin-left: -30px;
+        }
+
+        hr {
+            height: 2px;
+            background-color: red;
+            border: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <!--    <hr>-->
+    <div id="middle">
+        <div id="login_body">
+            <div id="main_body">
+                <form action="userlogin" method="post">
+                    <table id="main">
+                        <tr>
+                            <td class="layui-form-label" style="font-size: 30px;" id="login_word">账号登录</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"><i class="layui-icon layui-icon-username"
+                                                                       style="font-size: 20px; color: #000000;">账号</i></label>
+                                    <div class="layui-input-inline" style="width: 210px">
+                                        <label>
+                                            <input type="text" name="userid" id="userid" lay-verify="required"
+                                                   placeholder="请输入"
+                                                   autocomplete="off" class="layui-input" style="border-radius: 10px">
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label"><i class="layui-icon  layui-icon-password"
+                                                                       style="font-size: 20px; color: #000000;">密码</i></label>
+                                    <div class="layui-input-inline" style="width: 210px">
+                                        <label>
+                                            <input type="password" name="password" id="password" lay-verify="required"
+                                                   placeholder="请输入"
+                                                   autocomplete="off" class="layui-input" style="border-radius: 10px">
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="登录" class="layui-btn layui-btn-danger"
+                                       style="border-radius: 10px"/></td>
+                        </tr>
+                    </table>
+                    <!--                <input type="hidden" value="${flag }" name="flag"/>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
