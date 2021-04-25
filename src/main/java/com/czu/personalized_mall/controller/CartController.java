@@ -52,12 +52,12 @@ public class CartController {
         modelAndView.addObject("cartList",iCartService.findAllCartVOByUserId(user.getId()));
         return modelAndView;
     }
-//
-//    @GetMapping("/deleteById/{id}")
-//    public String deleteById(@PathVariable("id") Integer id){
-//        cartService.removeById(id);
-//        return "redirect:/cart/findAllCart";
-//    }
+
+    @GetMapping("/deleteById/{id}")
+    public String deleteById(@PathVariable("id") Integer id){
+        iCartService.removeById(id);
+        return "redirect:/cart/findAllCart";
+    }
 //
 //    @GetMapping("/settlement2")
 //    public ModelAndView settlement2(HttpSession session){

@@ -44,7 +44,7 @@
                             <input type="hidden" class="productStock" th:value="${cart.stock}"/>
                             <input type="button" value="" onclick="subQuantity(this)" class="car_btn_1" />
                             <input type="text" th:value="${cart.quantity}" name="quantit" class="car_ipt" readonly="readonly" />
-                            <input type="button" value="" onclick="addQuantity(this);" class="car_btn_2" />
+                            <input type="button" value="" onclick="addQuantity(this)" class="car_btn_2" />
                         </div>
                     </td>
                     <input type="hidden" class="id" th:value="${cart.id}" />

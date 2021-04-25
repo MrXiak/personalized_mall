@@ -53,14 +53,11 @@
             <button class="layui-btn layui-btn-normal layui-btn-radius" type="button" onclick="searchGoodsBtn()"
                     style="height:50px;width:80px"><i class="layui-icon">&#xe615;</i></button>
         </div>
-
-
-
         <div class="i_car">
-            <a href="#">
+            <a href="/mall/cart/findAllCart">
                 <div class="car_t">
                     购物车 [
-                    <span  th:text="${cartList.size()}">3</span>
+                    <span th:text="${cartList.size()}">3</span>
                     ]
                 </div>
             </a>
@@ -78,7 +75,7 @@
                 </ul>
                 <div class="price_sum">共计&nbsp;<font color="#ff4e00">￥</font><span id="totalCost"></span>
                 </div>
-                <div class="price_a"><a th:href="/mall/cart/findAllCart">去结算</a></div>
+                <div class="price_a"><a href="/mall/cart/findAllCart">去结算</a></div>
             </div>
         </div>
     </div>
@@ -96,15 +93,6 @@
             $("#totalCost").html("￥" + totalCost);
         });
     </script>
-
-
-
-
-
-
-
-
-
 <div class="menu_bg">
     <div class="menu">
         <div class="nav">
