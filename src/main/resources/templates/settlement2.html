@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <th:block th:include="common.html :: source"></th:block>-->
+    <!--    <th:block th:include="common.html :: source"></th:block>-->
     <script src="../static/js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
     <script src="../static/js/settlement.js" th:src="@{/js/settlement.js}"></script>
-    <link rel="stylesheet" href="../static/css/style.css" th:href="/css/style.css"></head>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
 <body>
 
 <!--<th:block th:include="common.html :: header"></th:block>-->
@@ -21,7 +22,7 @@
         <div class="content mar_20">
             <div class="two_bg">
                 <div class="two_t">
-                    <span class="fr"><a href="/cart/findAllCart">修改</a></span>商品列表
+                    <span class="fr"><a href="/mall/cart/findAllCart">修改</a></span>商品列表
                 </div>
                 <table border="0" class="car_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
                     <tr>
@@ -40,7 +41,6 @@
                         <td align="center" th:text="${cart.quantity}"></td>
                         <td align="center" class="qprice" style="color:#ff4e00;" th:text="'￥'+${cart.cost}"></td>
                     </tr>
-
                 </table>
 
                 <div class="two_t">
@@ -51,7 +51,7 @@
                         <td class="p_td" width="160">用户名称</td>
                         <td width="395" th:text="${session.user.userName}"></td>
                         <td class="p_td">登录名称</td>
-                        <td th:text="${session.user.loginName}"></td>
+                        <td th:text="${session.user.userName}"></td>
                     </tr>
                     <tr>
                         <td class="p_td">手机</td>
@@ -68,8 +68,10 @@
 
                         <tr th:each="address:${addressList}">
                             <td class="p_td" width="160">
-                                <input type="radio" th:if="${address.isdefault == 1}" checked name="userAddress" th:value="${address.address}">
-                                <input type="radio" th:if="${address.isdefault == 0}" name="userAddress" th:value="${address.address}">
+                                <input type="radio" th:if="${address.isdefault == 1}" checked name="userAddress"
+                                       th:value="${address.address}">
+                                <input type="radio" th:if="${address.isdefault == 0}" name="userAddress"
+                                       th:value="${address.address}">
                             </td>
                             <td th:text="${address.address}"></td>
                         </tr>
@@ -79,8 +81,8 @@
                                 新地址<input type="radio" name="userAddress" value="newAddress">
                             </td>
                             <td>
-                                地址 <input type="text" value="" name="address" class="add_ipt"> 
-                                备注 <input type="text" value="" name="remark" class="add_ipt">
+                                地址  <input type="text" value="" name="address" class="add_ipt">
+                                备注  <input type="text" value="" name="remark" class="add_ipt">
                             </td>
                         </tr>
 
@@ -88,13 +90,14 @@
                     <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
                         <tr height="70">
                             <td align="right">
-                                <b style="font-size:14px;">应付款金额：<span id="totalprice" style="font-size:22px; color:#ff4e00;"></span></b>
+                                <b style="font-size:14px;">应付款金额：<span id="totalprice"
+                                                                       style="font-size:22px; color:#ff4e00;"></span></b>
                                 <input type="hidden" name="cost" id="settlement2_totalCost"/>
                             </td>
                         </tr>
                         <tr height="70">
                             <td align="right"><a href="javascript:void(0);" onclick="settlement3();"><img
-                                    src="/images/btn_sure.gif"/></a></td>
+                                    src="/mall/images/btn_sure.gif"/></a></td>
                         </tr>
                     </table>
                 </form>
