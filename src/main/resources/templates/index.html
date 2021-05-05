@@ -45,14 +45,16 @@
                                            width="200px" height="100px"></a>
     </div>
     <div id="content_m">
-        <div class="layui-input-inline">
-            <input type="text" name="goodsName" id="goodsName" placeholder="商品名称查询" autocomplete="off"
-                   class="layui-input layui-btn-radius" style="width: 500px;height:50px;border: 1px solid #1E9FFF">
-        </div>
-        <div class="layui-input-inline">
-            <button class="layui-btn layui-btn-normal layui-btn-radius" type="button" onclick="searchGoodsBtn()"
-                    style="height:50px;width:80px"><i class="layui-icon">&#xe615;</i></button>
-        </div>
+        <form action="/mall/goods/findByKey" method="post">
+            <div class="layui-input-inline">
+                <input type="text" name="keyWord" id="keyWord" placeholder="商品名称查询" autocomplete="off"
+                       class="layui-input layui-btn-radius" style="width: 500px;height:50px;border: 1px solid #1E9FFF">
+            </div>
+            <div class="layui-input-inline">
+                <input type="submit" value="搜索" class="layui-btn layui-btn-normal layui-btn-radius"
+                       style="height:50px;width:80px">
+            </div>
+        </form>
         <div class="i_car">
             <a href="/mall/cart/findAllCart">
                 <div class="car_t">

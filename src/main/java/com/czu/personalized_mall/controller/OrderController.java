@@ -23,7 +23,7 @@ public class OrderController {
     @Autowired
     private ICartService cartService;
 
-    @PostMapping("/settlement3")
+    @RequestMapping("/settlement3")
     public ModelAndView settlement3(Orders orders, HttpSession session, String address, String remark){
         User user = (User) session.getAttribute("user");
         orderService.save(orders,user,address,remark);

@@ -45,10 +45,9 @@ public class User implements Serializable {
     /**
      * 性别(1:男 0：女)
      */
-//    private GenderEnum gender;
-//    @TableField(exist = false)
-//    private Integer genderCode;
-    private Integer gender;
+    private GenderEnum gender;
+    @TableField(exist = false)
+    private Integer genderCode;
 
     /**
      * 身份证号

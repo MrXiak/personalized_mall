@@ -31,7 +31,7 @@ public class OrderDetail implements Serializable {
     /**
      * 商品主键
      */
-    private Integer productId;
+    private Integer goodsId;
 
     /**
      * 数量

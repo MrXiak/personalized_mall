@@ -39,9 +39,10 @@ public class IOrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implemen
             userAddress.setAddress(address);
             userAddress.setRemark(remark);
             userAddress.setIsdefault(1);
-            userAddress.setUserId(user.getId());
+            userAddress.setUserId(user.getId());    
 
             QueryWrapper wrapper = new QueryWrapper();
+            wrapper.eq("user_id",user.getId());
             wrapper.eq("isdefault",1);
             UserAddress oldDefault = userAddressMapper.selectOne(wrapper);
             oldDefault.setIsdefault(0);

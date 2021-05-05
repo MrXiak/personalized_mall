@@ -30,8 +30,8 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml
-  typeAliasesPackage: com.czu.personalized_mallentity
-  #  typeEnumsPackage: com.example.book_store.Projo.enums
+  typeAliasesPackage: com.czu.personalized_mall.entity
+
   global-config:
     id-type: 0
 
@@ -44,3 +44,4 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     #    map-underscore-to-camel-case: true
     cache-enabled: true
+  type-enums-package: com.czu.personalized_mall.enums
