@@ -13,7 +13,7 @@ public class UserFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
         if(session.getAttribute("user") == null){
-            response.sendRedirect("/mall/user/userlogin");
+            response.sendRedirect("/mall/user/UserLogin.html");
         }else{
             filterChain.doFilter(servletRequest,servletResponse);
         }

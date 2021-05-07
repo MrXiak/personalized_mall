@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.czu.personalized_mall.UserMapper">
-
+<mapper namespace="com.czu.personalized_mall.mapper.UserMapper">
+<!--    <select id="confirmLogin" resultType="com.czu.personalized_mall.entity.User">-->
+<!--        select * from user where user_id=#{account}-->
+<!--    </select>-->
+<!--    <insert id="insertAccount">-->
+<!--        insert into user(user_id,password) values (#{account},#{password})-->
+<!--    </insert>-->
 </mapper>

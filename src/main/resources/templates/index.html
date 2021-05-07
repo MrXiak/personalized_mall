@@ -22,13 +22,17 @@
             &nbsp
             &nbsp
             <span th:if="${session.user==null}">
-                  <span class="l/r"><a href="/mall/user/userlogin" style="color:#ff4e00;">请登录</a></span>|
-                  <span class="l/r"><a href="/mall/user/register" style="color:#ff4e00;">免费注册</a></span>
+                  <span class="l/r"><a href="/mall/user/UserLogin.html" style="color:#ff4e00;">请登录</a></span>|
+                  <span class="l/r"><a href="/mall/user/UserRegister.html" style="color:#ff4e00;">免费注册</a></span>
             </span>
         </div>
         <div id="top_r">
                 <span th:if="${session.user!=null}">
-                  <a href="user/userInfo">欢迎回来，<span th:text="${session.user.userName}"> &nbsp;&nbsp;</span></a>
+                  <a href="user/userInfo">欢迎回来，
+                      <span th:if="${session.user.userName==null}">  <span th:text="${session.user.userId}"></span></span>
+                      <span th:if="${session.user.userName!=null}">  <span th:text="${session.user.userName}"></span></span>
+                  </a>
+
                   <a href="" class="l/r">购物车</a>|
                   <a href="" class="l/r">收藏夹</a>|
                   <a href="" class="l/r">我的借条</a>|
@@ -55,6 +59,8 @@
                        style="height:50px;width:80px">
             </div>
         </form>
+    </div>
+    <div id="content_r">
         <div class="i_car">
             <a href="/mall/cart/findAllCart">
                 <div class="car_t">
@@ -68,7 +74,7 @@
                 <ul class="cars">
                     <li th:each="cart:${cartList}">
                         <div class="img"><a th:href="'/mall/goods/findById/'+${cart.productId}"><img src="'/images/'+${cart.filmName}"
-                                                                            width="58" height="58"/></a>
+                                                                                                     width="58" height="58"/></a>
                         </div>
                         <div class="name"><a th:href="'/mall/goods/findById/'+${cart.productId}" th:text="${cart.name}">相机</a></div>
                         <div class="price"><font color="#ff4e00" th:text="'¥'+${cart.price}">￥300</font> X <span
@@ -227,7 +233,7 @@
                                 <font>￥<span th:text="${goodsVO.price}">206</span></font> &nbsp;
                             </div>
                             <div class="img">
-                                <a href="/productDetail.html">
+                                <a th:href="'/mall/goods/findById/'+${goodsVO.id}">
                                     <img th:src="'/images/'+${goodsVO.fileName}" width="185"
                                          height="155"/>
                                 </a>

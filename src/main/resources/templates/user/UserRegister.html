@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="/mall/js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <link rel="stylesheet" href="/mall/layuiadmin/layui/css/layui.css" th:href="@{/layuiadmin/layui/css/layui.css}">
+    <script src="/mall/layer/layer.js" th:src="@{/layer/layer.js}"></script>
     <style type="text/css">
         body{
             margin: 0;
@@ -25,7 +28,7 @@
             outline: none;
             margin: 0 auto;
             background-size: cover;
-            background-image: url("../../static/images/bg3.jpg");
+            background-image: url("/mall/images/bg3.jpg");
             opacity: .9;
         }
 
@@ -81,16 +84,13 @@
         }
 
     </style>
-    <script src="../../static/js/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="../../static/layuiadmin/layui/css/layui.css">
-    <script src="../../static/layer/layer.js"></script>
 </head>
 <!--导航栏-->
 <body>
 <div id="container">
     <div id="middle">
         <div id="login_left">
-            <div id="main_body">
+            <div id="main_body">,
                 <form>
                     <table id="main">
                         <tr>
@@ -164,33 +164,28 @@
                 </form>
             </div>
         </div>
-        <div id="login_right">
-        </div>
     </div>
-
 </div>
-<script src="../../static/js/jquery-3.5.1.min.js"></script>
-<script src="../../static/layuiadmin/layui/layui.js"></script>
-<script>
-    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function () {
-        var element = layui.element;
-    });
-</script>
+<!--<script>-->
+<!--    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作-->
+<!--    layui.use('element', function () {-->
+<!--        var element = layui.element;-->
+<!--    });-->
+<!--</script>-->
 
 <script>
     $(function () {
         $("#register").click(function () {
-            var account = $("#userID").val();
+            var account = $("#userId").val();
             var password = $("#password").val();
             var conform_password=$("#confirm_password").val();
             var input  = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
             if(!account){
-                layer.tips('请创建账号哦！', '#userID',{tips: [2,"#090909"]});
+                layer.tips('请创建账号哦！', '#userId',{tips: [2,"#090909"]});
             }else if (!input.test(account)){
-                layer.tips('账号只能包含数字或字母！', '#userID',{tips: [2,"#090909"]});
+                layer.tips('账号只能包含数字或字母！', '#userId',{tips: [2,"#090909"]});
             } else if (account.length<6 || account.length>10) {
-                layer.tips('账号长度不符合要求，请输入6-10位账号！', '#userID',{tips: [2,"#090909"]});
+                layer.tips('账号长度不符合要求，请输入6-10位账号！', '#userId',{tips: [2,"#090909"]});
             }else if(!password){
                 layer.tips('请输入密码哦！', '#password',{tips: [2,"#090909"]});
             }else if (!input.test(password)){
@@ -202,19 +197,20 @@
             }else if(conform_password!==password){
                 layer.tips('两次密码不一致！', '#confirm_password',{tips: [2,"#090909"]});
             }else {
-                // $.ajax({
-                //     url: "../confirmRegister.action",
-                //     data: {account: account, password: password},
-                //     success: function (msg) {
-                //         if (msg === 0) {
-                //             layer.tips('账号已存在！', '#userID',{tips: [2,"#ff3300"]});
-                //         } else if (msg === 1) {
-                //             alert("注册成功，返回登录")
-                //             // layer.alert('注册成功，返回登录', {icon: 6}).click({});
-                //             location.href = "UserLogin.html";
-                //         }
-                //     }
-                // })
+                $.ajax({
+                    url: "/mall/user/confirmRegister",
+                    data: {account: account, password: password},
+                    type:"GET",
+                    success: function (msg) {
+                        if (msg === 0) {
+                            layer.tips('账号已存在！', '#userID',{tips: [2,"#ff3300"]});
+                        } else if (msg === 1) {
+                            alert("注册成功，返回登录")
+                            // layer.alert('注册成功，返回登录', {icon: 6}).click({});
+                            location.href = "/mall/user/UserLogin.html";
+                        }
+                    }
+                })
             }
         })
     })

@@ -27,7 +27,6 @@ spring:
 
   resources:
     static-locations: classpath:/templates/,classpath:/static/
-
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml
   typeAliasesPackage: com.czu.personalized_mall.entity
