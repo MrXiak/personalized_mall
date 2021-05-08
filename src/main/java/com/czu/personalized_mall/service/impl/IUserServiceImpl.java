@@ -8,7 +8,6 @@ import com.czu.personalized_mall.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 @Service
 public class IUserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
@@ -25,14 +24,4 @@ public class IUserServiceImpl extends ServiceImpl<UserMapper, User> implements I
             userMapper.insert(user);
         }
     }
-//    @Resource
-//    private UserMapper UserMapper;
-//
-//    public User confirmUser(String account) {
-//        return UserMapper.confirmLogin(account);
-//    }
-//
-//    public void adduser(String account, String password) {
-//        UserMapper.insertAccount(account, password);
-//    }
 }
