@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商家-办公用具</title>
+    <link rel="stylesheet" href="/mall/css/leaseindex.css" th:href="@{/css/leaseindex.css}">
+    <link rel="stylesheet" href="/mall/css/category.css" th:href="@{/css/category.css}">
+
+<body>
+    <div class="container">
+        <div class="container_main">
+            <div class="container_main_head">
+                <div class="container_main_line"><hr></div>
+                <div class="container_main_title"><span>办&nbsp公</span></div>
+                <div class="container_main_line"><hr></div>
+            </div>
+            <div class="container_main_body bgOffice">
+                <ul class="vehicle-panel_list">
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idOffice')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">办公家具</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idPrint')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">打印</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCopy')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">复印</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idScan')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">扫描</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idIntegration')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">一体</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goSecond(second){
+            var kind="办公";
+            location.href = "/mall/lease/commodityindex?type="+kind+second;
+        }
+    </script>
+</body>
+</html>

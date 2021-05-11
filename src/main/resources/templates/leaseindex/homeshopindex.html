@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商家-居家生活</title>
+    <link rel="stylesheet" href="/mall/css/leaseindex.css" th:href="@{/css/leaseindex.css}">
+    <link rel="stylesheet" href="/mall/css/category.css" th:href="@{/css/category.css}">
+
+<body>
+    <div class="container">
+        <div class="container_main">
+            <div class="container_main_head">
+                <div class="container_main_line"><hr></div>
+                <div class="container_main_title"><span>居&nbsp家</span></div>
+                <div class="container_main_line"><hr></div>
+            </div>
+            <div class="container_main_body bgHome">
+                <ul class="vehicle-panel_list">
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCode')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">数码</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idHomeAppliance')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">家电</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCommunity')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">通讯</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idDaily')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">日用</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCostume')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">服装</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goSecond(second){
+            var kind="居家";
+            location.href = "/mall/lease/commodityindex?type="+kind+second;
+        }
+    </script>
+</body>
+</html>

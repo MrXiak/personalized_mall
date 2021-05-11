@@ -29,8 +29,10 @@
         <div id="top_r">
                 <span th:if="${session.user!=null}">
                   <a href="user/userInfo">欢迎回来，
-                      <span th:if="${session.user.userName==null}">  <span th:text="${session.user.userId}"></span></span>
-                      <span th:if="${session.user.userName!=null}">  <span th:text="${session.user.userName}"></span></span>
+                      <span th:if="${session.user.userName==null}">  <span
+                              th:text="${session.user.userId}"></span></span>
+                      <span th:if="${session.user.userName!=null}">  <span
+                              th:text="${session.user.userName}"></span></span>
                   </a>
 
                   <a href="" class="l/r">购物车</a>|
@@ -73,12 +75,16 @@
                 <div class="un_login">我的购物车</div>
                 <ul class="cars">
                     <li th:each="cart:${cartList}">
-                        <div class="img"><a th:href="'/mall/goods/findById/'+${cart.productId}"><img src="'/images/'+${cart.filmName}"
-                                                                                                     width="58" height="58"/></a>
+                        <div class="img"><a th:href="'/mall/goods/findById/'+${cart.productId}"><img
+                                src="'/images/'+${cart.filmName}"
+                                width="58" height="58"/></a>
                         </div>
-                        <div class="name"><a th:href="'/mall/goods/findById/'+${cart.productId}" th:text="${cart.name}">相机</a></div>
+                        <div class="name"><a th:href="'/mall/goods/findById/'+${cart.productId}" th:text="${cart.name}">相机</a>
+                        </div>
                         <div class="price"><font color="#ff4e00" th:text="'¥'+${cart.price}">￥300</font> X <span
-                                class="quantity" th:text="${cart.quantity}">2</span> = <span class="cost" th:text="${cart.cost}">600</span></div>
+                                class="quantity" th:text="${cart.quantity}">2</span> = <span class="cost"
+                                                                                             th:text="${cart.cost}">600</span>
+                        </div>
                     </li>
                 </ul>
                 <div class="price_sum">共计&nbsp;<font color="#ff4e00">￥</font><span id="totalCost"></span>
@@ -89,18 +95,18 @@
     </div>
 </div>
 <!-- search-->
-    <script type="text/javascript">
-        $(function () {
-            //购物车总价
-            var array = $(".cost");
-            var totalCost = 0;
-            for (var i = 0; i < array.length; i++) {
-                var val = parseInt($(".cost").eq(i).html());
-                totalCost += val;
-            }
-            $("#totalCost").html("￥" + totalCost);
-        });
-    </script>
+<script type="text/javascript">
+    $(function () {
+        //购物车总价
+        var array = $(".cost");
+        var totalCost = 0;
+        for (var i = 0; i < array.length; i++) {
+            var val = parseInt($(".cost").eq(i).html());
+            totalCost += val;
+        }
+        $("#totalCost").html("￥" + totalCost);
+    });
+</script>
 <div class="menu_bg">
     <div class="menu">
         <div class="nav">
@@ -115,9 +121,11 @@
                             <div class="zj_l">
                                 <div class="zj_l_c" th:each="levelTwo:${levelOne.children}">
                                     <h2>
-                                        <a th:href="'/mall/goods/list/second/'+${levelTwo.id}" th:text="${levelTwo.name}">二级分类1</a>
+                                        <a th:href="'/mall/goods/list/second/'+${levelTwo.id}"
+                                           th:text="${levelTwo.name}">二级分类1</a>
                                     </h2>
-                                    <a th:href="'/mall/goods/list/thrid/'+${levelThree.id}" th:each="levelThree:${levelTwo.children}"
+                                    <a th:href="'/mall/goods/list/thrid/'+${levelThree.id}"
+                                       th:each="levelThree:${levelTwo.children}"
                                        th:text="${levelThree.name}">三级分类1</a>
                                 </div>
                             </div>
@@ -155,12 +163,18 @@
     <div id="main-lunbo">
         <div class="layui-carousel" id="test1">
             <div carousel-item>
-                <div><img src="../static/images/i6.jpg" th:src="@{/images/i6.jpg}" alt="" height="499px" width="100%"></div>
-                <div><img src="../static/images/i2.png" th:src="@{/images/i2.png}" alt="" height="499px" width="100%"></div>
-                <div><img src="../static/images/i3.jpg" th:src="@{/images/i3.jpg}" alt="" height="499px" width="100%"></div>
-                <div><img src="../static/images/i5.jpg" th:src="@{/images/i5.jpg}" alt="" height="499px" width="100%"></div>
-                <div><img src="../static/images/i4.jpg" th:src="@{/images/i4.jpg}" alt="" height="499px" width="100%"></div>
-                <div><img src="../static/images/i1.png" th:src="@{/images/i1.png}" alt="" height="499px" width="100%"></div>
+                <div><img src="../static/images/i6.jpg" th:src="@{/images/i6.jpg}" alt="" height="499px" width="100%">
+                </div>
+                <div><img src="../static/images/i2.png" th:src="@{/images/i2.png}" alt="" height="499px" width="100%">
+                </div>
+                <div><img src="../static/images/i3.jpg" th:src="@{/images/i3.jpg}" alt="" height="499px" width="100%">
+                </div>
+                <div><img src="../static/images/i5.jpg" th:src="@{/images/i5.jpg}" alt="" height="499px" width="100%">
+                </div>
+                <div><img src="../static/images/i4.jpg" th:src="@{/images/i4.jpg}" alt="" height="499px" width="100%">
+                </div>
+                <div><img src="../static/images/i1.png" th:src="@{/images/i1.png}" alt="" height="499px" width="100%">
+                </div>
             </div>
         </div>
     </div>
@@ -218,7 +232,8 @@
                     <div class="fre_ban">
                         <div id="imgPlay1" class="imgPlay1">
                             <ul class="imgs" id="actor1">
-                                <li><a href="/productDetail.html"><img th:src="${goodsCategory.topImg}" width="211"/></a></li>
+                                <li><a href="/productDetail.html"><img th:src="${goodsCategory.topImg}"
+                                                                       width="211"/></a></li>
                             </ul>
                         </div>
                     </div>
@@ -263,34 +278,32 @@
         </div>
         <div id="Lease_content">
             <div id="Lease_content_1">
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
+                <a href="/mall/leaseindex/carshopindex.html">
+                    <div class="Lease_content_part">
+                        <div class="kind"><span>交通工具</span></div>
+                        <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
+                    </div>
+                </a>
+                <a href="/mall/leaseindex/homeshopindex.html">
+                    <div class="Lease_content_part">
+                        <div class="kind"><span>居家生活</span></div>
+                        <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
+                    </div>
+                </a>
             </div>
             <div id="Lease_content_2">
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
-            </div>
-            <div id="Lease_content_3">
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
-                <div class="Lease_content_part">
-                    <div class="kind"><span>出行</span></div>
-                    <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                </div>
+                <a href="/mall/leaseindex/officeshopindex.html">
+                    <div class="Lease_content_part">
+                        <div class="kind"><span>办公用具</span></div>
+                        <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
+                    </div>
+                </a>
+                <a href="/mall/leaseindex/weddingshopindex.html">
+                    <div class="Lease_content_part">
+                        <div class="kind"><span>婚庆活动</span></div>
+                        <div class="kind_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
+                    </div>
+                </a>
             </div>
         </div>
         <div id="Lease_right">

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商家-婚庆活动</title>
+    <link rel="stylesheet" href="/mall/css/leaseindex.css" th:href="@{/css/leaseindex.css}">
+    <link rel="stylesheet" href="/mall/css/category.css" th:href="@{/css/category.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="container_main">
+            <div class="container_main_head">
+                <div class="container_main_line"><hr></div>
+                <div class="container_main_title"><span>婚&nbsp庆</span></div>
+                <div class="container_main_line"><hr></div>
+            </div>
+            <div class="container_main_body bgWedding">
+                <ul class="vehicle-panel_list">
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idPlace')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">婚庆场地</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idWeddingCar')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">婚车</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idWeddingDress')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">婚纱礼服</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idSalute')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">礼炮</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="vehicle-panel_item">
+                        <a href="javascript:void(0);" onclick="goSecond('#idLighting')">
+                            <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">舞台灯具</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goSecond(second){
+            var kind="婚庆";
+            location.href = "/mall/lease/commodityindex?type="+kind+second;
+        }
+    </script>
+</body>
+</html>

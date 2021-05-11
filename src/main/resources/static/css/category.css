@@ -1,0 +1,39 @@
+.bgHouse{
+    background-image: url("/mall/images/category/House.jpg");
+}
+
+.bgCar{
+    background-image: url("/mall/images/Car.jpg");
+}
+
+.bgHome{
+    background-image: url("../images/Home.jpg");
+}
+
+.bgEquip{
+    background-image: url("../../images/category/equip.jpg");
+}
+
+.bgMachine{
+    background-image: url("../../images/category/machine.jpg");
+}
+
+.bgBuild{
+    background-image: url("../../images/category/build.jpg");
+}
+
+.bgRecreation{
+    background-image: url("../../images/category/recreation.jpg");
+}
+
+.bgOffice{
+    background-image: url("../images/office.jpg");
+}
+
+.bgWedding{
+    background-image: url("../images/wedding.jpg");
+}
+
+.bgFestival{
+    background-image: url("../../images/category/festival.jpg");
+}

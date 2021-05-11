@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/layer/layer.js}"></script>
+    <link rel="stylesheet" href="../static/css/commoditydetails.css" th:href="@{/css/commoditydetails.css}">
+</head>
+<body>
+<!--<iframe th:src="@{../eBao/index/navigation.html}" width="100%" height="100%" style="height: 120px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>-->
+<div class="container">
+    <div class="navigation_container">
+        <div class="navigation_header_container">
+            <div class="navigation_header">
+                <div class="navigation_header_title">
+                    <span th:text="${leaseDetails.goodsSecondKind}"></span>
+                </div>
+            </div>
+        </div>
+        <div class="navigation_body_container">
+            <div class="navigation_body">
+                <ul>
+                    <li class="navigation_body_nav"><a href="javascript:;" class="trans">宝贝详情</a></li>
+                    <li class="navigation_goback"><a href="javascript:;" id="goback">返回</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container_maincon">
+        <div class="container_main">
+            <div class="container_main_pic">
+                <div class="container_main_pic_image">
+                    <img th:src="@{${leaseDetails.goodsPicture}}">
+                </div>
+                <div class="container_main_pic_little">
+                    <div class="container_main_pic_littleimage">
+                        <img th:src="@{${leaseDetails.goodsPicture}}">
+                    </div>
+                    <div class="container_main_pic_littleimage">
+                        <img th:src="@{../eBao/images/benchiGLASUV1.jpg}">
+                    </div>
+                    <div class="container_main_pic_littleimage">
+                        <img th:src="@{../eBao/images/benchiGLASUV2.jpg}">
+                    </div>
+                    <div class="container_main_pic_littleimage">
+                        <img th:src="@{../eBao/images/benchiGLASUV3.jpg}">
+                    </div>
+                </div>
+            </div>
+            <div class="container_main_detail">
+                <div class="container_detail_name">
+                    <span th:text="${leaseDetails.goodsName}"></span>
+                </div>
+                <div class="container_detail_pricecon">
+                    <div class="container_detail_price">
+                        租价：
+                        <span class="container_detail_price-span" th:text="${leaseDetails.goodsPrice}">￥660</span>
+                        元/小时
+                    </div>
+                </div>
+                <div class="container_detail_pricecon">
+                    <div class="container_detail_price">
+                        押金：
+                        <span class="container_detail_price-span" th:text="${leaseDetails.deposit}">￥5000</span>
+                    </div>
+                </div>
+                <div class="container_detail_kindcon">
+                    <div class="container_detail_kind">
+                        类型：
+                        <span class="container_detail_kind-span" th:text="${leaseDetails.goodsFirstKind}">交通工具</span>
+                        <span class="container_detail_kind-span" th:text="${leaseDetails.goodsSecondKind}">轿车</span>
+                    </div>
+                </div>
+
+                <div class="container_detail_bottom">
+                    <div class="container_detail_datetimecon">
+                        <div class="container_detail_datetime">
+                            <span style="float: left">请选择租赁时间：</span>
+                            <div class="input_datetimecon">
+                                <input type="datetime-local" class="input_datetime" id="begintime">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container_detail_btncon">
+                        <div class="container_detail_btn">
+                            <div class="commitBtn" id="commitBtn" th:onclick="goOrder([[${leaseDetails.goodsId}]])">
+                                确认租赁
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<iframe th:src="@{../eBao/index/footer.html}" id="ideaForm" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>-->
+
+<script>
+    $(function () {
+        $('#goback').click(function () {
+            window.history.back(-1);
+        });
+    })
+</script>
+<script>
+    $(function () {
+        $('.container_main_pic_littleimage').hover(function () {
+            var src = $(this).children('img').attr('src');
+            $('.container_main_pic_image img').attr('src', src);
+        });
+    })
+</script>
+
+<script type="text/javascript" th:inline="javascript">
+    function goOrder(goodsId) {
+        var begintime = $("#begintime").val();
+        location.href = "/mall/outLease/insertLease?goodsId=" + goodsId + "&begintime=" + begintime;
+    }
+</script>
+
+<script>
+    function getbegtime() {
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        var MM = today.getMonth() + 1;
+        var dd = today.getDate();
+        var hh = today.getHours();
+        var mm = today.getMinutes();
+        MM = checkTime(MM);
+        dd = checkTime(dd);
+        hh = checkTime(hh);
+        mm = checkTime(mm);
+        var time = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
+
+        var dateControl = document.querySelector("#begintime");
+        dateControl.value = time;
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    }
+
+    window.onload = getbegtime();
+</script>
+</body>
+</html>

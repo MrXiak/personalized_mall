@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    height: 100%;
+    text-decoration: none;
+    color: #FFFFFF;
+    display: block;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+.container_main{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+/*头部标题栏*/
+.container_main_head{
+    margin: 20px 20px 30px 20px;
+}
+.container_main_head h1{
+    font-weight: normal;
+}
+.container_main_head::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.container_main_line{
+    height: 10px;
+    line-height: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 40%;
+    float: left;
+}
+.container_main_title{
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    font-family: 华文仿宋 ;
+    /*font-weight: 600;*/
+    text-align: center;
+    width: 20%;
+    float: left;
+}
+
+/*中部内容*/
+.container_main_body{
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: none;
+}
+.vehicle-panel_list{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+.vehicle-panel_item{
+    width: 238px;
+    height: 100%;
+    border: 1px #FFFFFF solid;
+    text-align: center;
+    position: relative;
+    float: left;
+    transition: all 0.6s;
+}
+.vehicle-panel_item-textcon{
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    bottom: 0;
+}
+.vehicle-panel_item-text{
+    margin: 0 auto;
+    max-width: 100px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-all;
+}
+.vehicle-panel_item-text::before{
+    margin: 20px auto;
+    width: 36px;
+    height: 36px;
+    background-image: url("../images/category/category_arrow2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: none;
+    content: "";
+    display: block;
+    clear: both;
+}
+.vehicle-panel_item:hover{
+    background: rgba( 0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.vehicle-panel_item:hover .vehicle-panel_item-textcon{
+    bottom: 50px;
+}
+

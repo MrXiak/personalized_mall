@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>租赁专区——交通工具</title>
+    <link rel="stylesheet" href="/mall/css/leaseindex.css" th:href="@{/css/leaseindex.css}">
+    <link rel="stylesheet" href="/mall/css/category.css" th:href="@{/css/category.css}">
+
+</head>
+<body>
+<div class="container">
+    <div class="container_main">
+        <div class="container_main_head">
+            <div class="container_main_line">
+                <hr>
+            </div>
+            <div class="container_main_title"><span>全&nbsp部&nbsp车&nbsp型</span></div>
+            <div class="container_main_line">
+                <hr>
+            </div>
+        </div>
+        <div class="container_main_body bgCar" >
+<!--        <div class="container_main_body" th:style="'background-image:url('+@{'/src/main/resources/static/images/category/Dream-Car.jpg'}+');'">-->
+        <ul class="vehicle-panel_list">
+                <li class="vehicle-panel_item">
+                    <a href="javascript:void(0);" onclick="goSecond('#idCar')">
+                        <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">
+                                        轿车
+                                </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="vehicle-panel_item">
+                    <a href="javascript:void(0);" onclick="goSecond('#idElectromobile')">
+                        <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">
+                                    电动车
+                                </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="vehicle-panel_item">
+                    <a href="javascript:void(0);" onclick="goSecond('#idCycle')">
+                        <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">
+                                    自行车
+                                </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="vehicle-panel_item">
+                    <a href="javascript:void(0);" onclick="goSecond('#idMotor')">
+                        <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">
+                                    机车
+                                </span>
+                        </div>
+                    </a>
+                </li>
+                <li class="vehicle-panel_item">
+                    <a href="javascript:void(0);" onclick="goSecond('#idTrucks')">
+                        <div class="vehicle-panel_item-textcon">
+                                <span class="vehicle-panel_item-text">
+                                    货车
+                                </span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goSecond(second){
+        var kind="交通工具";
+        location.href = "/mall/lease/commodityindex?type="+kind+second;
+    }
+</script>
+</body>
+</html>
