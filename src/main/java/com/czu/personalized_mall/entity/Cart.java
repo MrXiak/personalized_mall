@@ -13,7 +13,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 public class Cart implements Serializable {
@@ -38,4 +37,6 @@ public class Cart implements Serializable {
     private LocalDateTime updateTime;
 
 
+    public Cart() {
+    }
 }
