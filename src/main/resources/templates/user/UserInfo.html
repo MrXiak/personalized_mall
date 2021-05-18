@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../static/layuiadmin/layui/css/layui.css"
+          th:href="@{/layuiadmin/layui/css/layui.css}">
+    <link rel="stylesheet" href="../../static/css/userinfo.css" th:href="@{/css/userinfo.css}">
+    <script src="../../static/js/jquery-3.5.1.min.js" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script src="../../static/layuiadmin/layui/layui.js" th:src="@{/layuiadmin/layui/layui.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<!--<th:block th:include="common.html :: header"></th:block>-->
+
+<div class="i_bg bg_color">
+    <div class="m_content">
+
+        <div class="m_left">
+            <div class="left_n">管理中心</div>
+            <div class="left_m">
+                <div class="left_m_t t_bg1">订单中心</div>
+                <ul>
+                    <li><a href="/mall/orders/list">我的订单</a></li>
+                </ul>
+            </div>
+            <div class="left_m">
+                <div class="left_m_t t_bg2">会员中心</div>
+                <ul>
+                    <li><a href="#">用户信息</a></li>
+                    <li><a href="/mall/userAddress/list">地址管理</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="container">
+            <div id="container_main">
+                <div id="main_left">
+                    <div class="layui-upload">
+                        <div class="layui-upload-list">
+                            <input type="hidden" id="userImage" name="userImage">
+                            <img class="layui-upload-img" id="userimg" alt="请上传您的专属头像！" src="" width="200px"
+                                 height="200px">
+                            <p id="demoText"></p>
+                            <button class="layui-btn" id="upload">上传图片</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="main_right">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">账号：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="userID" id="userID" lay-verify="required"
+                                   class="layui-input" readonly="readonly" th:value="${session.user.userId}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">昵称：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="userName" id="userName" lay-verify="required" placeholder="请输入"
+                                   class="layui-input" th:value="${session.user.userName}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span style="color: red">*</span>身份证号：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="idCardNum" id="idCardNum" lay-verify="required"
+                                   class="layui-input" th:value="${session.user.identityCode}" placeholder="请输入">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span style="color: red">*</span>联系方式：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="userTel" id="userTel" lay-verify="required"
+                                   placeholder="请输入" class="layui-input"
+                                   th:value="${session.user.mobile}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span style="color: red">*</span>电子邮箱：</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="email" id="email" lay-verify="required"
+                                   placeholder="请输入" class="layui-input" th:value="${session.user.email}">
+                        </div>
+                    </div>
+                    <input type="button" class="layui-btn layui-btn-warm" id="save" value="保存信息"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<th:block th:include="common.html :: footer"></th:block>-->
+<!--<th:block th:include="common.html :: permit"></th:block>-->
+
+<script>
+    $(function () {
+        $("#save").click(function () {
+            var userImage = $("#userImage").val();
+            var userID = $("#userID").val();
+            var userName = $("#userName").val();
+            var idCardNum = $("#idCardNum").val();
+            var userTel = $("#userTel").val();
+            var email = $("#email").val();
+
+            var mobilereg1 = /^1[3|5|6|7|8|9][0-9]{9}$/; // 1[356789][0-9] （后面再接8位数）
+            var mobilereg2 = /^14[5|7][0-9]{8}$/; // 14[57] （后面再接8位数）
+            var regIdNo = /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+
+            if (!userTel) {
+                layer.tips('请填写手机号码！', '#userTel', {tips: [2, "#090909"]});
+            } else if (!mobilereg1.test(userTel) && !mobilereg2.test(userTel)) {
+                layer.tips('请填写正确的手机号码！', '#userTel', {tips: [2, "#ff3300"]});
+            } else if (!idCardNum) {
+                layer.tips('请填写身份证号码！', '#idCardNum', {tips: [2, "#090909"]});
+            } else if (!regIdNo.test(idCardNum)) {
+                layer.tips('请填写正确的身份证号码！', '#idCardNum', {tips: [2, "#ff3300"]});
+            } else if (!email) {
+                layer.tips('请填写电子邮箱！', '#email', {tips: [2, "#090909"]});
+            } else {
+                $.ajax({
+                    url: "/mall/user/updateuserInfo",
+                    data: {
+                        file_name: userImage,
+                        account: userID,
+                        userName: userName,
+                        identity_code: idCardNum,
+                        mobile: userTel,
+                        email: email
+                    },
+                    success: function (msg) {
+                        if (msg == 1) {
+                            layer.msg('修改成功！')
+                        } else {
+                            layer.msg('修改失败！')
+                        }
+                    }
+                })
+            }
+        })
+    })
+
+    layui.use('upload', function () {
+        var $ = layui.jquery
+        var upload = layui.upload;
+        //普通图片上传
+        upload.render({
+            elem: '#upload'
+            , url: "../upload"
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#userimg').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (res) {
+                //如果上传失败
+                // alert(res.img_url);
+                if (res.code == -1) {
+                    return layer.msg('上传失败')
+                }
+                if (res.code == 0) {
+                    var pic = res.file_name;
+                    console.log(pic);
+                    $("#userImage").val(pic);
+                    //上传成功
+                    return layer.msg('上传成功')
+                }
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+    })
+</script>
+</body>
+</html>

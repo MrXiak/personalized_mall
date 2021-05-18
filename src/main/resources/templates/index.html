@@ -18,9 +18,11 @@
     <div id="header_top">
         <div id="top_l">
             <span>你好，欢迎来到常享购!</span>
-            &nbsp
-            &nbsp
-            &nbsp
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            &nbsp;
             <span th:if="${session.user==null}">
                   <span class="l/r"><a href="/mall/user/UserLogin.html" style="color:#ff4e00;">请登录</a></span>|
                   <span class="l/r"><a href="/mall/user/UserRegister.html" style="color:#ff4e00;">免费注册</a></span>
@@ -28,15 +30,13 @@
         </div>
         <div id="top_r">
                 <span th:if="${session.user!=null}">
-                  <a href="user/userInfo">欢迎回来，
+                  欢迎回来，
                       <span th:if="${session.user.userName==null}">  <span
                               th:text="${session.user.userId}"></span></span>
                       <span th:if="${session.user.userName!=null}">  <span
                               th:text="${session.user.userName}"></span></span>
-                  </a>
-
-                  <a href="" class="l/r">购物车</a>|
-                  <a href="" class="l/r">收藏夹</a>|
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="/mall/user/userInfo" class="l/r">个人中心</a>|
                   <a href="" class="l/r">我的借条</a>|
                   <a href="/mall/user/logout">注销</a>
                 </span>
@@ -318,31 +318,11 @@
     </div>
     <div id="recommend_zone">
         <div class="title"><h2>猜你喜欢</h2></div>
-        <div>
+        <div th:each="recommend:${recommend}">
             <div id="recommend_zone_content_1" class="recommendcontent">
-                <div class="good_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                <div class="good_name"><span>商品名称</span></div>
-                <div class="good_price"><span>商品价格</span></div>
-            </div>
-            <div id="recommend_zone_content_2" class="recommendcontent">
-                <div class="good_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                <div class="good_name"><span>商品名称</span></div>
-                <div class="good_price"><span>商品价格</span></div>
-            </div>
-            <div id="recommend_zone_content_3" class="recommendcontent">
-                <div class="good_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                <div class="good_name"><span>商品名称</span></div>
-                <div class="good_price"><span>商品价格</span></div>
-            </div>
-            <div id="recommend_zone_content_4" class="recommendcontent">
-                <div class="good_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                <div class="good_name"><span>商品名称</span></div>
-                <div class="good_price"><span>商品价格</span></div>
-            </div>
-            <div id="recommend_zone_content_5" class="recommendcontent">
-                <div class="good_img"><img src="../static/images/p1.png" th:src="@{/images/p1.png}"></div>
-                <div class="good_name"><span>商品名称</span></div>
-                <div class="good_price"><span>商品价格</span></div>
+                <div class="good_img"><img th:src="'/images'+${recommend.fileName}"></div>
+                <div class="good_name"><span th:text="${recommend.name}">商品名称</span></div>
+                <div class="good_price"><span th:text="${recommend.price}">商品价格</span></div>
             </div>
         </div>
     </div>

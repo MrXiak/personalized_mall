@@ -1,9 +1,7 @@
 package com.czu.personalized_mall.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.czu.personalized_mall.enums.GenderEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -40,12 +38,6 @@ public class User implements Serializable {
      */
     private String password;
 
-    /**
-     * 性别(1:男 0：女)
-     */
-    private GenderEnum gender;
-    @TableField(exist = false)
-    private Integer genderCode;
 
     /**
      * 身份证号

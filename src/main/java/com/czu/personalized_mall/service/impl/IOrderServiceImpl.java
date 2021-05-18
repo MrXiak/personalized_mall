@@ -84,43 +84,43 @@ public class IOrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implemen
         cartMapper.delete(wrapper1);
         return true;
     }
-//
-//    @Override
-//    public List<OrderVO> findAllOrederVOByUserId(Integer id) {
-//        QueryWrapper wrapper = new QueryWrapper();
-//        wrapper.eq("user_id",id);
-//        List<Orders> ordersList = orderMapper.selectList(wrapper);
-//        //VO转换
-////        List<OrderVO> orderVOList = new ArrayList<>();
-////        for (Orders orders : ordersList) {
-////            OrderVO orderVO = new OrderVO();
-////            BeanUtils.copyProperties(orders,orderVO);
-////            orderVOList.add(orderVO);
-////        }
-//
-//        List<OrderVO> orderVOList = ordersList.stream()
-//                .map(e -> new OrderVO(
-//                        e.getId(),
-//                        e.getLoginName(),
-//                        e.getSerialnumber(),
-//                        e.getUserAddress(),
-//                        e.getCost()
-//                )).collect(Collectors.toList());
-//        //封装OrderDetail
-//        for (OrderVO orderVO : orderVOList) {
-//            QueryWrapper wrapper1 = new QueryWrapper();
-//            wrapper1.eq("order_id",orderVO.getId());
-//            List<OrderDetail> orderDetailList = orderDetailMapper.selectList(wrapper1);
-//            List<OrderDetailVO> orderDetailVOList = new ArrayList<>();
-//            for (OrderDetail orderDetail : orderDetailList) {
-//                OrderDetailVO orderDetailVO = new OrderDetailVO();
-//                Goods goods = goodsMapper.selectById(orderDetail.getProductId());
-//                BeanUtils.copyProperties(goods,orderDetailVO);
-//                BeanUtils.copyProperties(orderDetail,orderDetailVO);
-//                orderDetailVOList.add(orderDetailVO);
-//            }
-//            orderVO.setOrderDetailVOList(orderDetailVOList);
+
+    @Override
+    public List<OrderVO> findAllOrederVOByUserId(Integer id) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("user_id",id);
+        List<Orders> ordersList = orderMapper.selectList(wrapper);
+        //VO转换
+//        List<OrderVO> orderVOList = new ArrayList<>();
+//        for (Orders orders : ordersList) {
+//            OrderVO orderVO = new OrderVO();
+//            BeanUtils.copyProperties(orders,orderVO);
+//            orderVOList.add(orderVO);
 //        }
-//        return orderVOList;
-//    }
+
+        List<OrderVO> orderVOList = ordersList.stream()
+                .map(e -> new OrderVO(
+                        e.getId(),
+                        e.getLoginName(),
+                        e.getSerialnumber(),
+                        e.getUserAddress(),
+                        e.getCost()
+                )).collect(Collectors.toList());
+        //封装OrderDetail
+        for (OrderVO orderVO : orderVOList) {
+            QueryWrapper wrapper1 = new QueryWrapper();
+            wrapper1.eq("order_id",orderVO.getId());
+            List<OrderDetail> orderDetailList = orderDetailMapper.selectList(wrapper1);
+            List<OrderDetailVO> orderDetailVOList = new ArrayList<>();
+            for (OrderDetail orderDetail : orderDetailList) {
+                OrderDetailVO orderDetailVO = new OrderDetailVO();
+                Goods goods = goodsMapper.selectById(orderDetail.getGoodsId());
+                BeanUtils.copyProperties(goods,orderDetailVO);
+                BeanUtils.copyProperties(orderDetail,orderDetailVO);
+                orderDetailVOList.add(orderDetailVO);
+            }
+            orderVO.setOrderDetailVOList(orderDetailVOList);
+        }
+        return orderVOList;
+    }
 }

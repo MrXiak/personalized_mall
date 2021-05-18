@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    -webkit-user-drag: none;
+}
+
+#container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#container_main{
+    padding-top: 60px;
+    width: 730px;
+    margin: 0 auto;
+}
+#container_main:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+#main_left, #main_right {
+    float: left;
+}
+#main_left {
+    width: 300px;
+    text-align: center;
+}
+
+#main_right {
+    width: 430px;
+}

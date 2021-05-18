@@ -44,3 +44,12 @@ mybatis-plus:
     #    map-underscore-to-camel-case: true
     cache-enabled: true
   type-enums-package: com.czu.personalized_mall.enums
+
+
+
+file:
+  path: F:/img/
+  #虚拟路径
+  static-path: /images/**
+  #访问文件的基本路径地址
+  base-url: http://127.0.0.1:9292/mall/images/

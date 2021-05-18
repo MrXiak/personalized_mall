@@ -33,15 +33,15 @@ public class OrderController {
         modelAndView.addObject("orders",orders);
         return modelAndView;
     }
-//
-//    @GetMapping("/list")
-//    public ModelAndView list(HttpSession session){
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("orderList");
-//        User user = (User) session.getAttribute("user");
-//        modelAndView.addObject("list",orderService.findAllOrederVOByUserId(user.getId()));
-//        modelAndView.addObject("cartList",cartService.findAllCartVOByUserId(user.getId()));
-//        return modelAndView;
-//    }
+
+    @GetMapping("/list")
+    public ModelAndView list(HttpSession session){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/user/orderList");
+        User user = (User) session.getAttribute("user");
+        modelAndView.addObject("list",orderService.findAllOrederVOByUserId(user.getId()));
+        modelAndView.addObject("cartList",cartService.findAllCartVOByUserId(user.getId()));
+        return modelAndView;
+    }
 }
 

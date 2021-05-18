@@ -2,6 +2,7 @@ package com.czu.personalized_mall.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.czu.personalized_mall.service.ICartService;
 import com.czu.personalized_mall.service.IUserService;
 import com.czu.personalized_mall.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+
+    @Autowired
+    private ICartService iCartService;
 
     @Autowired
     private IUserService iUserService;
@@ -100,13 +105,26 @@ public class UserController {
     /**
      * 用户信息
      */
-//    @GetMapping("/userInfo")
-//    public ModelAndView userInfo(HttpSession session){
-//        User user = (User) session.getAttribute("user");
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("userInfo");
-//        modelAndView.addObject("cartList",cartService.findAllCartVOByUserId(user.getId()));
-//        return modelAndView;
-//    }
+    @GetMapping("/userInfo")
+    public ModelAndView userInfo(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/user/UserInfo");
+        return modelAndView;
+    }
+
+    @RequestMapping("/updateuserInfo")
+    public Integer updateuserInfo(String account,String userName, String identity_code,String email,String mobile,String file_name){
+        QueryWrapper wrapper=new QueryWrapper();
+        wrapper.eq("user_id",account);
+        User user=new User();
+        user.setUserId(account);
+        user.setUserName(userName);
+        user.setIdentityCode(identity_code);
+        user.setEmail(email);
+        user.setFileName(file_name);
+        user.setMobile(mobile);
+        iUserService.update(user,wrapper);
+        return 1;
+    }
 }
 
